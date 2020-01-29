@@ -1,0 +1,113 @@
+article {
+	position: relative;
+
+	figure img {
+		max-width: initial;
+		width: 100%;
+	}
+
+	> div {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		padding: .75rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		background-color: rgba($color: #000000, $alpha: .3);
+	}
+}
+
+.article-foot {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: .5rem 0;
+
+	p {
+		font-size: .75rem;
+	}
+
+	a {
+		font-weight: bold;
+	}
+
+	a:last-child {
+		margin-left: .5rem;
+	}
+}
+
+
+.article-tag {
+	text-align: right;
+
+	span {
+		display: inline-block;
+		padding: .15rem .25rem;
+		background-color: white;
+		color: black;
+		font-weight: bold;
+		font-size: .75rem;
+		border-radius: 7px;
+	}
+}
+
+.main-article {
+	grid-column-start: 1;
+	grid-column-end: 7;
+	grid-row-start: 1;
+	grid-row-end: 4;
+}
+
+.v-article {
+	position: relative;
+	grid-column-start: 7;
+	grid-column-end: 9;
+	grid-row-start: 1;
+	grid-row-end: 4;
+
+	h4 { font-size: 1.25rem; }
+}
+
+.h-article {
+
+	.s1 & {
+		grid-column-start: 9;
+		grid-column-end: 13;
+	}
+
+	.s2 & {
+		$col: 1;
+		
+		@for $i from 3 to 15 {
+			@if $col >= 13 {
+				$col: 1;
+			}
+			&:nth-child(#{$i}) {
+				grid-column-start: $col;
+				grid-column-end: #{$col + 4};
+			}
+			$col: $col + 4;
+		}
+		
+	}
+}
+
+.s2 {
+	h2 {
+		margin-top: 1.25rem;
+	}
+
+	h2:first-child, > div:first-of-type {
+		grid-column-start: 1;
+		grid-column-end: 9;
+		color: #eac100;
+	}
+
+	h2:nth-child(2), > div:last-of-type {
+		grid-column-start: 9;
+		grid-column-end: 13;
+		color: #0b8457;
+	}
+}
