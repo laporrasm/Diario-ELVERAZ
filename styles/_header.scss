@@ -16,6 +16,10 @@ header .container {
 
 			a {
 				font-size: .8rem;
+
+				&:hover {
+					text-decoration: underline;
+				}
 			}
 		}
 	}

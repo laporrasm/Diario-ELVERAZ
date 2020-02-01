@@ -30,11 +30,23 @@ article {
 	}
 
 	a {
+		display: inline-block;
+		padding: .2rem .5rem;
 		font-weight: bold;
-	}
+		font-size: .75rem;
+		border: 2px solid;
+		border-radius: 100%;
+		transition: transform .5s;
 
-	a:last-child {
-		margin-left: .5rem;
+		&:last-child {
+			margin-left: .5rem;
+		}
+
+		&:hover {
+			border-color: white;
+			transform: rotate(360deg);
+			transition: transform 1s;
+		}
 	}
 }
 
